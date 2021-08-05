@@ -15,7 +15,7 @@ router.get('/', withAuth, async (req, res) => {
         const Recipe = dbUserData.map(post => post.get({ plain: true }));
 
         res.render('profile', {
-          recipes,
+          Recipe,
           username: req.session.username,
           email: req.session.email,
           user_image: req.session.user_image,
@@ -43,8 +43,8 @@ router.get('/:id', async (req, res) => {
         const Recipe = dbUserData.map(post => post.get({ plain: true }));
 
         res.render('profile', {
-          recipes,
-          username: req.session.username,
+          User_Recipe,
+          username: req..username,
           email: req.session.email,
           user_image: req.session.user_image,
           user_id: req.session.user_id,
