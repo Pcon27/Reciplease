@@ -36,13 +36,15 @@ router.get('/profile/:id',withAuth,async,(req,res)=>{
                     'user_id',
                     'recipe_name',
                     'recipe_description',
-                    '',
+                    // recipe_ingredient
+                    //recipe_instructions
                 ],
 
             },
 
         ],
-    });
+       
+    }); res.render('profile',dbProfileData)
 
     }catch (err) {
         console.log(err);
@@ -52,3 +54,6 @@ router.get('/profile/:id',withAuth,async,(req,res)=>{
 
 
 //get one recipe
+router.get('/recipe/:id',withAuth,async,(req,res)=>{
+
+});
