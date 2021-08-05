@@ -44,7 +44,7 @@ router.get('/:id', async (req, res) => {
 
         res.render('profile', {
           User_Recipe,
-          username: req..username,
+          username: req.username,
           email: req.session.email,
           user_image: req.session.user_image,
           user_id: req.session.user_id,
