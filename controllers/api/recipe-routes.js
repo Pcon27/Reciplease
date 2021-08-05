@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const { Recipe } = require('../../models');//double check models
-
+const withAuth = require('../../utils/auth');
 //view recipe
-router.get('/recipe/:id', async, (req, res) => {    //will need withAuth
+router.get('/recipe/:id', withAuth, async, (req, res) => {    //will need withAuth
     try {
         const dbRecipeData = await Recipe.findByPk({
             include: [
@@ -42,3 +42,5 @@ router.post('/recipe', async, (req, res) => {
         res.status(500).json(err);
     }
 });
+
+module.exports = router;
