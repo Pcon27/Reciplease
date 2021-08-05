@@ -161,3 +161,78 @@ form label {
   );
   transform: scale(1.1);
 }
+
+/* Add Recipe Page */
+.header-add-recipe {
+  color: darkgray;
+}
+
+.input {
+  border: none;
+  font-size: 1.4rem;
+  font-weight: 300;
+  height: 3rem;
+  margin-right: 1.6rem;
+  margin-bottom: 1rem;
+  padding: 0.4rem 0.8rem;
+}
+
+#text-add {
+  position: relative;
+  left: 90px;
+  color: darkgray;
+}
+
+#ingredients-container {
+  color: darkgray;
+}
+
+textarea {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+textarea::placeholder {
+  border: none;
+  font-size: 1.4rem;
+  font-weight: 300;
+  height: 3rem;
+  margin-right: 1.4rem;
+  padding: 0.4rem 0.8rem;
+  font-family: Arial;
+  color: grey;
+  font-style: italic;
+}
+
+.text-element {
+  margin-right: 1em;
+}
+
+.button {
+  font-size: 1.06rem;
+  font-family: "Ubuntu", sans-serif;
+  color: white;
+  padding: 10px;
+  background: linear-gradient(
+    343deg,
+    rgb(214, 41, 41) 0%,
+    rgb(139, 21, 27) 100%
+  );
+  min-width: 20rem;
+  transform: scale(1);
+  transition: background-image 1s, transform 0.5s;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.button-danger {
+  background: linear-gradient(
+    343deg,
+    rgb(212, 72, 72) 0%,
+    rgb(136, 43, 47) 100%
+  );
+  transform: scale(1.1);
+}
