@@ -26,7 +26,7 @@ router.get('/', async (req, res) => {
 });
 
 //get one profile with all of user recipes and when they click on the recipe they will see the full recipe
-router.get('/profile/:id',withAuth,async (req,res)=>{
+router.get('/profile/:id',withAuth, async (req,res)=>{
     try{
         const dbProfileData = await Post.findByPk({
         include: [
@@ -51,7 +51,7 @@ router.get('/profile/:id',withAuth,async (req,res)=>{
 
 
 //get one recipe
-router.get('/recipe/:id',withAuth,async,(req,res)=>{
+router.get('/recipe/:id',withAuth, async (req,res)=>{
     try{
         const dbRecipeData = await Recipe.findByPk({
             include: [{
