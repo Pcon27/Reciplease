@@ -16,6 +16,7 @@
     <title>Document</title>
 </head>
 <body>
+  <main class= "mainTest">
     <header class="p-3 bg-dark text-white">
         <div class="container">
           <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -27,10 +28,6 @@
               <li><a href="#" class="nav-link px-2 text-white" id="add">Add Recipes</a></li>
               
             </ul>
-    
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-              <input type="search" class="form-control form-control-dark" placeholder="Search Recipes..." aria-label="Search">
-            </form>
     
             <div class="text-end">
               <button type="button" class="btn btn-outline-light me-2">Login</button>
@@ -66,5 +63,60 @@
         </div>
     </div>
 <!-- class="card-body" -->
+
+<!-- LOGIN SIGN UP PAGE -->
+<!-- <section class="login-container">
+  <form class="login-form">
+    <div>
+      <input type="text" id="email-login" placeholder="Enter Email" />
+    </div>
+    <div>
+      <input type="password" id="password-login" placeholder="Enter Password" />
+    </div>
+    <div>
+      <button type="submit">Log In</button>
+    </div>
+  </form>
+
+  <form class="signup-form">
+    <div>
+      <input type="text" id="username-signup" placeholder="Enter Username" />
+    </div>
+    <div>
+      <input type="text" id="email-signup" placeholder="Enter Email" />
+    </div>
+    <div>
+      <input type="password" id="password-signup" placeholder="Enter Password" />
+    </div>
+    <div>
+      <button type="submit">Sign Up</button>
+    </div>
+  </form>
+</section> -->
+<!-- LOGIN SIGN UP PAGE -->
+
+<!-- RECIPE MODAL PAGE -->
+<div class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Recipe title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Recipe body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- RECIPE MODAL PAGE -->
+
+
+<script src="/javascript/login.js"></script>
+</main>
     </body>
 </html>
