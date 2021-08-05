@@ -4,7 +4,7 @@ const withAuth = require('../utils/auth');
 
 //get all profiles for homepage
 //need User_recipe model , rename to profile??
-router.get('/', async, (req, res) => {  
+router.get('/', async (req, res) => {  
     try {
         const dbPostData = await Post.findByAll({
             include: [
@@ -25,8 +25,8 @@ router.get('/', async, (req, res) => {
     };
 });
 
-//get one profile
-router.get('/profile/:id',withAuth,async,(req,res)=>{
+//get one profile with all of user recipes and when they click on the recipe they will see the full recipe
+router.get('/profile/:id',withAuth,async (req,res)=>{
     try{
         const dbProfileData = await Post.findByPk({
         include: [
@@ -36,15 +36,12 @@ router.get('/profile/:id',withAuth,async,(req,res)=>{
                     'user_id',
                     'recipe_name',
                     'recipe_description',
-                    // recipe_ingredient
-                    //recipe_instructions
                 ],
-
             },
-
         ],
        
-    }); res.render('profile',dbProfileData)
+    }); 
+    res.render('profile',dbProfileData)
 
     }catch (err) {
         console.log(err);
@@ -78,3 +75,6 @@ router.get('/recipe/:id',withAuth,async,(req,res)=>{
         res.status(500).json(err);
     };
 });
+
+
+module.exports = router;
