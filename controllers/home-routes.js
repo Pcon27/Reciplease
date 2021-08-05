@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Project, User,Post } = require('../models');
+const {Post, Recipe } = require('../models');
 const withAuth = require('../utils/auth');
 
 //get all profiles for homepage
@@ -22,7 +22,7 @@ router.get('/', async, (req, res) => {
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
-    }
+    };
 });
 
 //get one profile
@@ -49,11 +49,32 @@ router.get('/profile/:id',withAuth,async,(req,res)=>{
     }catch (err) {
         console.log(err);
         res.status(500).json(err);
-    }
+    };
 });
 
 
 //get one recipe
 router.get('/recipe/:id',withAuth,async,(req,res)=>{
+    try{
+        const dbRecipeData = await Recipe.findByPk({
+            include: [{
+                model: Recipe,
+                attributes:[
+                    'id',
+                    'name',
+                    'description',
+                    'post_date',
+                    'ingredients',
+                    'instructions',
+                ],
 
+            }],
+
+        });
+        res.render('profile',dbRecipeData)
+
+    }catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    };
 });

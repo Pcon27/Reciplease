@@ -24,7 +24,7 @@ router.get('/recipe/:id', withAuth, async, (req, res) => {    //will need withAu
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
-    }
+    };
 });
 
 //post a new recipe
@@ -40,7 +40,7 @@ router.post('/recipe', async, (req, res) => {
 
     } catch (err) {
         res.status(500).json(err);
-    }
+    };
 });
 
 module.exports = router;
