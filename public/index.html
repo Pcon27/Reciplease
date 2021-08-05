@@ -96,22 +96,46 @@
 <!-- LOGIN SIGN UP PAGE -->
 
 <!-- RECIPE MODAL PAGE -->
-<div class="modal" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Recipe title</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Recipe body text goes here.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save</button>
-            </div>
+<div class="modal fade" id="myModal{{@index}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-light">
+        <h5 class="modal-title" id="exampleModalLabel">{{title}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- {{{description}}} -->
+        <h3>This is the recipe descritpion.</h3>
+        <div class="row">
+          <div class="col-md-6">
+            <ol>Ingredients</ol>
+              <li>ITEMS</li>
+              <li>ITEMS</li>
+              <li>ITEMS</li>
+              <li>ITEMS</li>
+              <li>ITEMS</li>
+            <!-- {{{ingredients}}} -->
+          </div>
+          <div class="col-md-6">
+            <ol>Instructions</ol>
+            <li>1. blah blah blah</li>
+            <li>2. blah blah blah</li>
+            <li>3. blah blah blah</li>
+            <li>4. blah blah blah</li>
+            <li>5. blah blah blah</li>
+            <!-- {{{instructions}}} -->
+          </div>
         </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="modal-btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="modal-btn btn-primary">Save</button>
+      </div>
     </div>
+  </div>
 </div>
 <!-- RECIPE MODAL PAGE -->
 

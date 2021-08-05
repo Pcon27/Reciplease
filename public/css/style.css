@@ -130,6 +130,11 @@ form label {
   display: block;
 }
 
+/* Modal stylling */
+.modal-body {
+  font-size: small;
+}
+
 .modal-btn {
   font-size: 1.06rem;
   font-family: "Ubuntu", sans-serif;
