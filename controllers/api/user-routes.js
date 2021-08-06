@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Recipe, User_Recipe, } = require('../../models');
+const { User } = require('../../models');
 const withAuth = require('../../utils/auth');
 const {randomNumber} = require('../../utils/helpers');
 

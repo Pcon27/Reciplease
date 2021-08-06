@@ -1,19 +1,25 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const {Recipe, User, User_Recipe } = require('../models');
+const { User, User_Recipe } = require('../models');
 const withAuth = require('../utils/auth');
 
 // GET all posts associated with the logged-in user
 router.get('/', withAuth, async (req, res) => {
   try {
-    const dbPostData = await Recipe.findAll(req.session.user_id, {
+    const dbPostData = await User_Recipe.findAll(req.session.user_id, {
       order: [['created_at', 'DESC']],
-
-      include: [
-        { model: User, through: User_Recipe}, ]
+      attributes: [
+        'id',
+        'name',
+        'description',
+        'user_id',
+        'post_date',
+        'ingredients',
+        'instructions',
+      ],
     });
         // serialize data before passing to template
-        const Recipe = dbPostData.map(post => post.get({ plain: true }));
+        const User_Recipe = dbPostData.map(post => post.get({ plain: true }));
 
         res.render('profile', {
           username: req.session.username,
@@ -32,22 +38,11 @@ router.get('/', withAuth, async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-    const dbUserData = await Recipe.findAll(req.params.user_id, {
-    
-      include: [{ model: User, through: User_Recipe}]
+    const dbUserData = await User_Recipe.findAll(req.params.user_id, {
+  
     });
         // serialize data before passing to template
-        const Recipe = dbUserData.map(post => post.get({ plain: true }));
-
-        res.render('profile', {
-          User_Recipe,
-          username: req.params.username,
-          email: req.params.email,
-          user_image: req.params.user_image,
-          user_id: req.params.user_id,
-
-          loggedIn: true
-        });
+        const User_Recipe = dbUserData.map(post => post.get({ plain: true }));
       }
       catch(err) {
         console.log(err);
@@ -56,3 +51,4 @@ router.get('/:id', async (req, res) => {
 });
     
 module.exports = router;
+

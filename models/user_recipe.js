@@ -1,9 +1,10 @@
 const { Model, DataTypes } = require('sequelize');
+// const { User_Recipe } = require('.');
 const sequelize = require('../config/connection');
 
-class Post extends Model {}
+class User_Recipe extends Model {}
 
-Post.init(
+User_Recipe.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -48,4 +49,4 @@ Post.init(
   }
 );
 
-module.exports = Post;
+module.exports = User_Recipe;
