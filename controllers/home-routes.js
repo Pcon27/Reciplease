@@ -1,24 +1,17 @@
 const router = require('express').Router();
-const {Post, Recipe } = require('../models');
+const { Recipe, User_Recipe } = require('../models');
 const withAuth = require('../utils/auth');
 
 //get all profiles for homepage
 //need User_recipe model , rename to profile??
 router.get('/', async (req, res) => {  
+    console.log(User_Recipe);
+    console.log("hello");
     try {
-        const dbPostData = await Post.findByAll({
-            include: [
-                {
-                    model: Post,
-                    attributes: [
-                        'user_id',
-                        'recipe_name',
-                        'recipe_description',
-                    ],
-                },
-            ],
+        var dbRecipeData = await User_Recipe.findAll({
+        
         });
-        res.render('homepage',dbPostData)
+        res.status(200).json(dbRecipeData);
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -26,22 +19,27 @@ router.get('/', async (req, res) => {
 });
 
 //get one profile with all of user recipes and when they click on the recipe they will see the full recipe
-router.get('/profile/:id',withAuth, async (req,res)=>{
+router.get('/profile/:id', async (req,res)=>{
     try{
-        const dbProfileData = await Post.findByPk({
-        include: [
-            {   
-                model: Post,
-                attributes: [
-                    'user_id',
-                    'recipe_name',
-                    'recipe_description',
-                ],
+        const dbProfileData = await User_Recipe.findOne({
+            where:{
+                id:req.body.id,
             },
-        ],
        
     }); 
-    res.render('profile',dbProfileData)
+
+    // try{
+    //     const dbProfileData = await User_Recipe.findByPk({
+    //     include: [
+    //         {   
+    //             model: User_Recipe,
+            
+    //         },
+    //     ],
+       
+    // }); 
+    res.status(200).json(dbProfileData);
+    // res.render('profile',dbProfileData)
 
     }catch (err) {
         console.log(err);
