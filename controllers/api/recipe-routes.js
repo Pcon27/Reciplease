@@ -19,8 +19,8 @@ router.get('/recipe/:id', withAuth, async (req, res) => {    //will need withAut
                 },
             ],
         });
-        const recipe = dbRecipeData.get({ plain: true });
-        res.render('recipe', { recipe, loggedIn: req.session.loggedIn });
+        const Recipe = dbRecipeData.get({ plain: true });
+        res.render('recipe', { Recipe, loggedIn: req.session.loggedIn });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
