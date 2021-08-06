@@ -1,9 +1,10 @@
 const router = require('express').Router();
-const { User, User_Recipe } = require('../../models');
+const { User, User_Recipe,Recipe } = require('../../models');
 
 
 
 // GET /api/users (get all users)
+
 router.get('/', async (req, res) => {
     // Access our User model and run .findAll() method)
     try {
@@ -26,8 +27,7 @@ router.get('/:id', async (req, res) => {
       attributes: { exclude: ['password'] },
       include: [
         {
-          model: User_Recipe,
-          attributes: ['id', 'title', 'post', 'created_at']
+          model:Recipe ,through:User, as:"userMadeRecipes"
         },
     ]
     });
