@@ -1,49 +1,49 @@
 const router = require('express').Router();
-const { User, Recipe, User_Recipe, } = require('../../models');
-const withAuth = require('../../utils/auth');
-const {randomNumber} = require('../../utils/helpers');
+const { User } = require('../../models');
+// const withAuth = require('../../utils/auth');
+// const {randomNumber} = require('../../utils/helpers');
 
-// GET /api/users (get all users)
-router.get('/', async (req, res) => {
-    // Access our User model and run .findAll() method)
-    try {
-        const dbUserData = await User.findAll({
-      attributes: { exclude: ['password'] }
-    });
-    res.status(200).json(dbUserData);
+// // GET /api/users (get all users)
+// router.get('/', async (req, res) => {
+//     // Access our User model and run .findAll() method)
+//     try {
+//         const dbUserData = await User.findAll({
+//       attributes: { exclude: ['password'] }
+//     });
+//     res.status(200).json(dbUserData);
 
-    }catch(err) {
-        console.log(err);
-        res.status(500).json(err);
-      };
-});
+//     }catch(err) {
+//         console.log(err);
+//         res.status(500).json(err);
+//       };
+// });
 
-// GET /api/users/1 (get user by ID)
-router.get('/:id', async (req, res) => {
-    try {
-    const dbUserData = await User.findOne(req.params.id, {
+// // GET /api/users/1 (get user by ID)
+// router.get('/:id', async (req, res) => {
+//     try {
+//     const dbUserData = await User.findOne(req.params.id, {
 
-      attributes: { exclude: ['password'] },
-      include: [
-        {
-          model: Post,
-          attributes: ['id', 'title', 'post', 'created_at']
-        },
-    ]
-    });
-        // include the Comment model here:
+//       attributes: { exclude: ['password'] },
+//       include: [
+//         {
+//           model: Post,
+//           attributes: ['id', 'title', 'post', 'created_at']
+//         },
+//     ]
+//     });
+//         // include the Comment model here:
     
-    if (!dbUserData) {
-          res.status(404).json({ message: 'No user found with this id' });
-          return;
-        };
-    res.json(dbUserData);
+//     if (!dbUserData) {
+//           res.status(404).json({ message: 'No user found with this id' });
+//           return;
+//         };
+//     res.json(dbUserData);
 
-    }catch(err) {
-        console.log(err);
-        res.status(500).json(err);
-      };
-});
+//     }catch(err) {
+//         console.log(err);
+//         res.status(500).json(err);
+//       };
+// });
 
 // CREATE new user
 router.post('/', async (req, res) => {
