@@ -1,15 +1,36 @@
 const router = require('express').Router();
-const sequelize = require('../config/connection');
-const { Recipe, User, User_Recipe } = require('../models');
-const withAuth = require('../utils/auth');
+const sequelize = require('../../config/connection');
+const { Recipe, User, User_Recipe } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // GET all posts associated with the logged-in user
 router.get('/', withAuth, async (req, res) => {
   try {
-    const dbUserData = await Recipe.findAll(req.session.user_id, {
+    const dbUserData = await User_Recipe.findAll(req.session.user_id, {
       order: [['created_at', 'DESC']],
 
-      include: [{ model: User, through: User_Recipe}]
+      attributes: [
+        'id',
+        'user_id',
+        'recipe_id',
+        'post_image',
+        'created_at',
+      ],
+      include: [
+        {
+          model: Recipe,
+          attributes: ['id', 'name', 'description', 'user_id', 'post_date', 'ingredients', ],
+          include: {
+            model: User,
+            attributes: ['username', 'user_image']
+          }
+        },
+        {
+          model: User,
+          attributes: ['username', 'email', 'user_image']
+        }
+      ]
+
     });
         // serialize data before passing to template
         const Recipe = dbUserData.map(post => post.get({ plain: true }));
