@@ -16,7 +16,7 @@ Recipe.init(
             allowNull: false,
         },
         description: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: false,
         },
         user_id: {
@@ -29,13 +29,14 @@ Recipe.init(
         post_date: {
             type: DataTypes.DATE,
             allowNull: false,
+            defaultValue: DataTypes.NOW
         },
         ingredients: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: false,
         },
         instructions: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: false,
         },
         

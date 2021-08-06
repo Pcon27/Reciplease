@@ -20,7 +20,7 @@
   /* ingredient Card */
 
   position: inline-block;
-  width: 33%;
+  width: 31%;
   /* display: flex;
   flex-direction: row;
   flex-wrap: wrap; */
@@ -29,8 +29,8 @@
   left: 68px;
   top: 221px;
 
-  background: #dfdfdf;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background: gray;
+  box-shadow: 0px 4px 4px rgba(241, 39, 39, 0.973);
   border-radius: 12px;
 }
 
