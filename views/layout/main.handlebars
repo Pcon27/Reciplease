@@ -30,10 +30,6 @@
               
             </ul>
     
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-              <input type="search" class="form-control form-control-dark" placeholder="Search Recipes..." aria-label="Search">
-            </form>
-    
             <div class="text-end">
               <button type="button" class="btn btn-outline-light me-2">Login</button>
               <button type="button" class="btn btn-danger">Sign-up</button>
@@ -41,6 +37,16 @@
           </div>
         </div>
       </header>
+
+      {{!-- <nav>
+        <!-- Conditionally render login or logout links -->
+        {{#if logged_in}}
+        <a href="/profile">profile</a> |
+        <button class="no-button" id="logout">logout</button>
+        {{else}}
+        <a href="/login">login</a>
+        {{/if}}
+      </nav> --}}
 
       <!-- style="width: 18rem;" -->
     <div class="row">
