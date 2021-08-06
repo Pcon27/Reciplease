@@ -1,9 +1,17 @@
 [
     {
         "name":"Pizza",
+        "description":"Veggie Pizza",
+        "post-date":"01/01/2021",
+        "ingredients":"2 ½ cups warm water\n2 teaspoons active dry yeast\n7 cups all-purpose flour\n6 tablespoons extra virgin olive oil\n1 ½ teaspoons kosher salt\n 1 cup tomatoe sauce\n2cups of cheese\n2 cups of your choice of vegetables",
+        "instructions":"1.Bloom the yeast by sprinkling the sugar and yeast in the warm water. Let sit for 10 minutes, until bubbles form on the surface.\nIn a large bowl, combine the flour and salt. Make a well in the middle and add the olive oil and bloomed yeast mixture. Using a spoon, mix until a shaggy dough begins to form.\nPreheat the oven as high as your oven will allow, between 450-500˚F (230-260˚C). Place a pizza stone, heavy baking sheet (turn upside down so the surface is flat), or cast iron skillet in the oven.\n Meanwhile, make the tomato sauce: Add the salt to the can of tomatoes and puree with an immersion blender, or transfer to a blender or food processor, and puree until smooth."
+    },
+    {
+        "name":"",
         "description":"",
-        "post-date":"",
+        "post-date":"01/01/2021",
         "ingredients":"",
         "instructions":""
     }
+
 ]
