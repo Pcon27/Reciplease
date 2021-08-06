@@ -18,7 +18,6 @@ router.get('/', withAuth, async (req, res) => {
           Recipe,
           username: req.session.username,
           email: req.session.email,
-          user_image: req.session.user_image,
           user_id: req.session.user_id,
 
           loggedIn: true
