@@ -6,14 +6,14 @@ const withAuth = require('../utils/auth');
 // GET all posts associated with the logged-in user
 router.get('/', withAuth, async (req, res) => {
   try {
-    const dbUserData = await Recipe.findAll(req.session.user_id, {
+    const dbPostData = await Recipe.findAll(req.session.user_id, {
       order: [['created_at', 'DESC']],
 
       include: [
         { model: User, through: User_Recipe}, ]
     });
         // serialize data before passing to template
-        const Recipe = dbUserData.map(post => post.get({ plain: true }));
+        const Recipe = dbPostData.map(post => post.get({ plain: true }));
 
         res.render('profile', {
           username: req.session.username,
@@ -30,13 +30,10 @@ router.get('/', withAuth, async (req, res) => {
       };
 });
 
-
-
 router.get('/:id', async (req, res) => {
   try {
     const dbUserData = await Recipe.findAll(req.params.user_id, {
-      order: [['created_at', 'DESC']],
-
+    
       include: [{ model: User, through: User_Recipe}]
     });
         // serialize data before passing to template
