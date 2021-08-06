@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Recipe, User, User_Recipe } = require('../models');
+const {Recipe, User, User_Recipe } = require('../models');
 const withAuth = require('../utils/auth');
 
 // GET all posts associated with the logged-in user
@@ -9,13 +9,13 @@ router.get('/', withAuth, async (req, res) => {
     const dbUserData = await Recipe.findAll(req.session.user_id, {
       order: [['created_at', 'DESC']],
 
-      include: [{ model: User, through: User_Recipe}]
+      include: [
+        { model: User, through: User_Recipe}, ]
     });
         // serialize data before passing to template
         const Recipe = dbUserData.map(post => post.get({ plain: true }));
 
         res.render('profile', {
-          Recipe,
           username: req.session.username,
           email: req.session.email,
           user_image: req.session.user_image,
@@ -31,7 +31,7 @@ router.get('/', withAuth, async (req, res) => {
 });
 
 
-// GET selected post for edit-post page
+
 router.get('/:id', async (req, res) => {
   try {
     const dbUserData = await Recipe.findAll(req.params.user_id, {
@@ -44,10 +44,10 @@ router.get('/:id', async (req, res) => {
 
         res.render('profile', {
           User_Recipe,
-          username: req.username,
-          email: req.session.email,
-          user_image: req.session.user_image,
-          user_id: req.session.user_id,
+          username: req.params.username,
+          email: req.params.email,
+          user_image: req.params.user_image,
+          user_id: req.params.user_id,
 
           loggedIn: true
         });
