@@ -1,0 +1,13 @@
+     <div class="card col-6 col-md-4 m-2">
+        <h2 class="bg-success text-white">{{user.username}}</h2>
+        <section class="cardBody">
+          {{#each user.recipe as |recipe|}}
+          {{> profile-details}}
+          {{/each}}
+          {{#if loggedIn}}
+          <a href="/profile" class="btn btn-warning">Add to profile</a>
+          {{else}}
+          <a href="login">You must login to add recipes to profile</a>
+          {{/if}}
+        </section>
+      </div>
