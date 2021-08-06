@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Recipe } = require('../../models');//double check models
 const withAuth = require('../../utils/auth');
 //view recipe
-router.get('/recipe/:id', withAuth, async (req, res) => {    //will need withAuth
+router.get('/:id', withAuth, async (req, res) => {    //will need withAuth
     try {
         const dbRecipeData = await Recipe.findByPk({
             include: [
@@ -28,7 +28,7 @@ router.get('/recipe/:id', withAuth, async (req, res) => {    //will need withAut
 });
 
 //post a new recipe
-router.post('/recipe', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         const dbRecipeData = await Recipe.create({
             name: req.body.name,
