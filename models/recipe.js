@@ -19,13 +19,7 @@ Recipe.init(
             type: DataTypes.TEXT,
             allowNull: false,
         },
-        user_id: {
-            type: DataTypes.INTEGER,
-            references: {
-              model: 'User',
-              key: 'id',
-            },
-          },
+
         post_date: {
             type: DataTypes.DATE,
             allowNull: false,
@@ -39,6 +33,13 @@ Recipe.init(
             type: DataTypes.TEXT,
             allowNull: false,
         },
+        user_id: {
+            type: DataTypes.INTEGER,
+            references: {
+              model: 'User',
+              key: 'id',
+            },
+          },
         
     }, 
     {

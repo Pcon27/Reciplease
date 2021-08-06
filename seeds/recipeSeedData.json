@@ -2,20 +2,25 @@
     {
         "name":"Pizza",
         "description":"Veggie Pizza",
+        "user_id":"1",
         "post-date":"01/01/2021",
         "ingredients":"2 ½ cups warm water\n2 teaspoons active dry yeast\n7 cups all-purpose flour\n6 tablespoons extra virgin olive oil\n1 ½ teaspoons kosher salt\n 1 cup tomatoe sauce\n2cups of cheese\n2 cups of your choice of vegetables",
         "instructions":"1.Bloom the yeast by sprinkling the sugar and yeast in the warm water. Let sit for 10 minutes, until bubbles form on the surface."
+        
     },
     {
         "name":"Chocolate Chip Oatmeal Cookies",
         "description":"No Bake Chocolate Chip Oatmeal Cookies",
+        "user_id":"3",
         "post-date":"01/01/2021",
         "ingredients":"1 cup chocolate chips\n1 cup natural creamy peanut butter\n3 cups rolled oats",
         "instructions":"1.Melt Chocolate\n2.Mix peanut butter and chocolate together\n3.Stir in oats\nScoop out 2 tbsp dough and form into ball\nPlace cookies onto parchment paper"
+
     },
     {
         "name":"Grilled Pineapple",
         "description":"Grilled Pineapple Skewer",
+        "user_id":"3",
         "post-date":"01/01/2021",
         "ingredients":"1 Pineapple",
         "instructions":"1.Cut pineaplle into chunks\n2.Place chunks on skewer\n3.Grill at 350 F for 10 minutes"
@@ -30,6 +35,7 @@
     {
         "name":"Root Beer Float",
         "description":"Ice Cream Soda Float",
+        "user_id":"3",
         "post-date":"01/01/2021",
         "ingredients":"1 cup root beer\n 1 scoop vanilla ice cream",
         "instructions":"1.Place root beer into glass\n2.Add scoop of vanilla ice cream"
@@ -37,16 +43,20 @@
     {
         "name":"Frozen Honey",
         "description":"Frozen Honey",
+        "user_id":"3",
         "post-date":"01/01/2021",
         "ingredients":"1 cup Honey",
         "instructions":"1.Place honey in desired container\n2.Freeze for atleast 10 hours and enjoy"
+        
     },
     {
         "name":"Spicy Edamame",
         "description":"Edamame with chile garlic sauce",
+        "user_id":"7",
         "post-date":"01/01/2021",
         "ingredients":"1 cup edamae\n2 tbsp chili garlic sauce\n1/2tbsp sesame oil",
         "instructions":"1.In a small fry pan on medium low heat add the sesame oil\n2.Add chile garlic sauce and remove pan from heat\n3.Stir in edamame"
+        
     }
 
 

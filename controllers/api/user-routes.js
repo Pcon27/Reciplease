@@ -46,7 +46,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // CREATE new user
-//looping multiple times
+//ask about session
 router.post('/', async (req, res) => {
     try {
       const dbUserData = await User.create(req.body);
