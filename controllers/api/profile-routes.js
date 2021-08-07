@@ -6,40 +6,29 @@ const withAuth = require('../../utils/auth');
 // GET all posts associated with the logged-in user
 router.get('/', withAuth, async (req, res) => {
   try {
-    const dbUser_RecipeData = await User_Recipe.findAll(req.session.user_id, {
+    const dbUser_RecipeData = await User.findByPk(req.session.id, {
       order: [['created_at', 'DESC']],
 
-      attributes: [
-        'id',
-        'user_id',
-        'recipe_id',
-      ],
       include: [
         {
-          model: Recipe,
-          attributes: ['id', 'name', 'description', 'user_id', 'post_date', 'ingredients', ],
-          // include: {
-          //   model: User,
-          //   attributes: ['username']
-          // }
+          model:Recipe,
+          as:"userMadeRecipies",
+
         },
-        {
-          model: User,
-          attributes: ['username']
-        }
-      ]
+    ]
 
     });
         // // serialize data before passing to template
         const User_Recipe = dbUser_RecipeData.post.get({ plain: true });
+        res.status(200).json(dbUser_RecipeData);
 
-        res.render('User_Recipe', {
-        User_Recipe,
-        user_id: req.session.user_id,
-        recipe_id: req.session.recipe_id,
+        // res.render('User_Recipe', {
+        // User_Recipe,
+        // user_id: req.session.user_id,
+        // recipe_id: req.session.recipe_id,
 
-        loggedIn: true
-        });
+        // loggedIn: true
+        // });
       }
       catch(err) {
         console.log(err);
@@ -49,46 +38,31 @@ router.get('/', withAuth, async (req, res) => {
 
 
 // GET selected post
-router.get('user/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
-    const dbUserData = await User_Recipe.findAll(req.params.user_id, {
-      order: [['created_at', 'DESC']],
+    const dbUserData = await User.findByPk(req.params.id, {
+      // order: [['created_at', 'DESC']],
 
-      attributes: [
-        'id',
-        'user_id',
-        'recipe_id',
-      ],
       include: [
         {
-          model: Recipe,
-          attributes: ['id', 'name', 'description', 'user_id', 'post_date', 'ingredients', ],
-          // include: {
-          //   model: User,
-          //   attributes: ['username']
-          // }
+          model: Recipe, 
+          through: User_Recipe,
+          as: "userMadeRecipes"
         },
-        {
-          model: User,
-          attributes: ['username']
-        }
-      ]
+    ]
 
     });
-        // // serialize data before passing to template
-        const Recipe = dbUserData.map(post => post.get({ plain: true }));
 
-        res.render('User_Recipe', {
-          User_Recipe,
-          user_id: req.body.user_id,
-        recipe_id: req.body.recipe_id,
-        });
-      }
-      catch(err) {
-        console.log(err);
-        res.status(500).json(err);
-      };
+    if (!dbUserData) {
+      res.status(404).json({ message: 'No Recipe found with this id!' });
+      return;
+    }
+
+    res.status(200).json(dbUserData);
+  } catch (err) {
+    res.status(500).json(err);
+    console.log(err)
+  }
 });
-    
-module.exports = router;
 
+module.exports = router;
