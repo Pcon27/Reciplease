@@ -1,31 +1,37 @@
-const User = require('./User');
-const Recipe = require('./Recipe');
-const User_Recipe = require('./User_Recipe');
+const User = require("./User");
+const Recipe = require("./Recipe");
+const User_Recipe = require("./User_Recipe");
 
 // User/Recipe associations
 // use as keyword
 
-Recipe.belongsTo(User, {
-    // foreignKey: 'recipe_id',
-    through: {
-        model: User_Recipe,
-        //field referenced in the association must have a unique constraint placed on it. 
-        unique: false
-      },
-      as:"usersRecipes",
+User_Recipe.belongsTo(User, {
+  foreignKey: "user_id",
+  // targetKey: "user_id",
+  as: "User",
+});
+
+User_Recipe.belongsTo(Recipe, {
+  foreignKey: "recipe_id",
+  // targetKey: "recipe_id",
+  as: "Recipe",
+});
+
+Recipe.belongsToMany(User, {
+  as: "usersRecipes",
+  through: User_Recipe,
+  //field referenced in the association must have a unique constraint placed on it.
+  unique: false,
+  foreignKey: "recipe_id",
 });
 
 User.belongsToMany(Recipe, {
   //commented back in for seeds
-  foreignKey: 'user_id',
-  through: {
-      model: User_Recipe,
-      //field referenced in the association must have a unique constraint placed on it. 
-      unique: false
-    },
-    as:"userMadeRecipes",
+  as: "userMadeRecipes",
+  through: User_Recipe,
+  //field referenced in the association must have a unique constraint placed on it.
+  unique: false,
+  foreignKey: "user_id",
 });
 
-// how to do "join tables"
-
-module.exports = { User, Recipe, User_Recipe,};
+module.exports = { User, Recipe, User_Recipe };
