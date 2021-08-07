@@ -5,17 +5,20 @@ const User_Recipe = require("./User_Recipe");
 // User/Recipe associations
 // use as keyword
 
-User_Recipe.belongsTo(User, {
+User_Recipe.associate = (models) => {
+
+User_Recipe.belongsTo(models.User, {
   foreignKey: "user_id",
   // targetKey: "user_id",
   as: "User",
 });
 
-User_Recipe.belongsTo(Recipe, {
+User_Recipe.belongsTo(models.Recipe, {
   foreignKey: "recipe_id",
   // targetKey: "recipe_id",
   as: "Recipe",
 });
+};
 
 Recipe.belongsToMany(User, {
   as: "usersRecipes",
