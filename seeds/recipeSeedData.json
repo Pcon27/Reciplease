@@ -18,6 +18,7 @@
     {
         "name":"Grilled Pineapple",
         "description":"Grilled Pineapple Skewer",
+  
         "post-date":"01/01/2021",
         "ingredients":"1 Pineapple",
         "instructions":"1.Cut pineaplle into chunks\n2.Place chunks on skewer\n3.Grill at 350 F for 10 minutes"
@@ -25,6 +26,7 @@
     {
         "name":"",
         "description":"",
+
         "post-date":"01/01/2021",
         "ingredients":"",
         "instructions":""
@@ -32,6 +34,7 @@
     {
         "name":"Root Beer Float",
         "description":"Ice Cream Soda Float",
+
         "post-date":"01/01/2021",
         "ingredients":"1 cup root beer\n 1 scoop vanilla ice cream",
         "instructions":"1.Place root beer into glass\n2.Add scoop of vanilla ice cream"
@@ -39,7 +42,7 @@
     {
         "name":"Frozen Honey",
         "description":"Frozen Honey",
-        "user_id":"3",
+
         "post-date":"01/01/2021",
         "ingredients":"1 cup Honey",
         "instructions":"1.Place honey in desired container\n2.Freeze for atleast 10 hours and enjoy"
@@ -48,7 +51,7 @@
     {
         "name":"Spicy Edamame",
         "description":"Edamame with chile garlic sauce",
-        "user_id":"7",
+
         "post-date":"01/01/2021",
         "ingredients":"1 cup edamae\n2 tbsp chili garlic sauce\n1/2tbsp sesame oil",
         "instructions":"1.In a small fry pan on medium low heat add the sesame oil\n2.Add chile garlic sauce and remove pan from heat\n3.Stir in edamame"
