@@ -18,7 +18,13 @@ router.get('/', async (req, res) => {
                 },
             ]
         });
-        res.status(200).json(dbRecipeData);
+        const recipes = dbRecipeData.map((recipe) =>
+        recipe.get({ plain: true })
+        );
+        res.render('homepage', {
+            recipes
+        })
+        // res.status(200).json(dbRecipeData);
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
