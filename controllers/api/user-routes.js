@@ -72,7 +72,7 @@ router.post('/', async (req, res) => {
           email: req.body.email,
         },
       });
-  
+      console.log(dbUserData, "this is the data");
       if (!dbUserData) {
         res
           .status(400)
@@ -85,7 +85,7 @@ router.post('/', async (req, res) => {
       if (!validPassword) {
         res
           .status(400)
-          .json({ message: 'Incorrect email or password. Please try again!' });
+          .json({ message: 'Incorrect email or password. Please tell me why you arent working' });
         return;
       }
   
