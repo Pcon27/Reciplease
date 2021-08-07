@@ -16,7 +16,8 @@ Recipe.belongsTo(User, {
 });
 
 User.belongsToMany(Recipe, {
-  // foreignKey: 'user_id',
+  //commented back in for seeds
+  foreignKey: 'user_id',
   through: {
       model: User_Recipe,
       //field referenced in the association must have a unique constraint placed on it. 
