@@ -1,27 +1,15 @@
 const router = require('express').Router();
-const { Recipe } = require('../../models');//double check models
+const { Recipe,User_Recipe,User} = require('../../models');//double check models
 const withAuth = require('../../utils/auth');
 //view recipe
-router.get('/:id', withAuth, async (req, res) => {    //will need withAuth
+router.get('/:id', async (req, res) => {    //will need withAuth
     try {
-        const dbRecipeData = await Recipe.findByPk({
-            include: [
-                {
-                    model: Recipe,
-                    attributes: [
-                        'id',
-                        'name',
-                        'description',
-                        'post_date',
-                        'ingredients',
-                        'instructions',
-                    ],
-                },
-            ],
+        const dbRecipeData = await Recipe.findOne({
+            where:{id:req.params.id}
         });
-        const Recipe = dbRecipeData.get({ plain: true });
-        res.render('recipe', { Recipe, loggedIn: req.session.loggedIn });
-    } catch (err) {
+       
+        res.status(200).json(dbRecipeData);
+     }catch (err) {
         console.log(err);
         res.status(500).json(err);
     };
