@@ -6,34 +6,35 @@ const withAuth = require('../../utils/auth');
 // GET all posts associated with the logged-in user
 router.get('/', withAuth, async (req, res) => {
   try {
-    const dbUser_RecipeData = await User.findByPk(req.session.id, {
-      order: [['created_at', 'DESC']],
+    const dbUser_RecipeData = await User.findByPk(req.session.userId, {
+      // order: [['created_at', 'DESC']],
 
       include: [
         {
-          model:Recipe,
-          as:"userMadeRecipies",
+          model: Recipe,
+          as: "userMadeRecipes",
 
         },
-    ]
+      ]
 
     });
-        // // serialize data before passing to template
-        const User_Recipe = dbUser_RecipeData.post.get({ plain: true });
-        res.status(200).json(dbUser_RecipeData);
+    
+    // // serialize data before passing to template
+    const User_Recipe = dbUser_RecipeData.get({ plain: true });
+    res.status(200).json(User_Recipe);
 
-        // res.render('User_Recipe', {
-        // User_Recipe,
-        // user_id: req.session.user_id,
-        // recipe_id: req.session.recipe_id,
+    // res.render('User_Recipe', {
+    // User_Recipe,
+    // user_id: req.session.user_id,
+    // recipe_id: req.session.recipe_id,
 
-        // loggedIn: true
-        // });
-      }
-      catch(err) {
-        console.log(err);
-        res.status(500).json(err);
-      };
+    // loggedIn: true
+    // });
+  }
+  catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  };
 });
 
 
@@ -45,11 +46,11 @@ router.get('/:id', async (req, res) => {
 
       include: [
         {
-          model: Recipe, 
+          model: Recipe,
           through: User_Recipe,
           as: "userMadeRecipes"
         },
-    ]
+      ]
 
     });
 
