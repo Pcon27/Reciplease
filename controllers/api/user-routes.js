@@ -40,9 +40,11 @@ router.post('/login', async (req, res) => {
         .json({ message: 'Incorrect email or password. Please tell me why you arent working' });
       return;
     }
+    console.log("req.session.loggedIn", req.session.loggedIn);
     req.session.save(() => {
       req.session.loggedIn = true;
       req.session.userId = dbUserData.id;
+      console.log("req.session.loggedIn", req.session.loggedIn);
       res
         .status(200)
         .json({ user: dbUserData, message: 'You are now logged in!' });
