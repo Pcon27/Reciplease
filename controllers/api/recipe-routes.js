@@ -2,10 +2,18 @@ const router = require('express').Router();
 const { Recipe,User_Recipe,User} = require('../../models');//double check models
 const withAuth = require('../../utils/auth');
 //view recipe
+//works
 router.get('/:id', async (req, res) => {    //will need withAuth
     try {
         const dbRecipeData = await Recipe.findOne({
-            where:{id:req.params.id}
+            where:{id:req.params.id},
+            include: [
+                {
+                  model: User,
+                  through: User_Recipe,
+                  as: "usersRecipes"
+                },
+              ]
         });
        
         res.status(200).json(dbRecipeData);
@@ -16,6 +24,7 @@ router.get('/:id', async (req, res) => {    //will need withAuth
 });
 
 //post a new recipe
+
 router.post('/', async (req, res) => {
     try {
         const dbRecipeData = await Recipe.create({
