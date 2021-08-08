@@ -17,12 +17,10 @@ router.get("/", async (req, res) => {
         },
       ],
     });
-    const recipes = dbRecipeData.map((recipe) =>
-      recipe.get({ plain: true })
-    );
-    res.render('homepage', {
-      recipes
-    })
+    const recipes = dbRecipeData.map((recipe) => recipe.get({ plain: true }));
+    res.render("homepage", {
+      recipes,
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -73,7 +71,7 @@ router.get("/users/:id", async (req, res) => {
 //************************************BEGIN PROFILE ROUTES************************/
 // GET all posts associated with the logged-in user
 //works
-router.get('/profile', withAuth, async (req, res) => {
+router.get("/profile", withAuth, async (req, res) => {
   try {
     const dbUser_RecipeData = await User.findByPk(req.session.userId, {
       // order: [['created_at', 'DESC']],
@@ -82,47 +80,49 @@ router.get('/profile', withAuth, async (req, res) => {
           model: Recipe,
           as: "userMadeRecipes",
         },
-      ]
+      ],
     });
     // serialize data before passing to template
     const User_Recipe = dbUser_RecipeData.get({ plain: true });
-    // res.render('User_Recipe', {
-    // User_Recipe,
-    // loggedIn: true
-    // });
-  }
-  catch (err) {
+    res.render("profile", {
+      User_Recipe,
+      loggedIn: true,
+    });
+  } catch (err) {
     console.log(err);
     res.status(500).json(err);
-  };
+  }
 });
-
 
 // GET selected post
 //works
-router.get('/profile/:id', async (req, res) => {
+router.get("/profile/:id", async (req, res) => {
   try {
     const dbUserData = await User.findByPk(req.params.id, {
       // order: [['created_at', 'DESC']],
-      attributes: { exclude: ['password'] },
+      attributes: { exclude: ["password"] },
       include: [
         {
           model: Recipe,
           as: "userMadeRecipes",
         },
-      ]
-
+      ],
+    });
+    const User_Recipe = dbUser_RecipeData.get({ plain: true });
+    res.render("profile", {
+      User_Recipe,
+      loggedIn: true,
     });
 
     if (!dbUserData) {
-      res.status(404).json({ message: 'No Recipe found with this id!' });
+      res.status(404).json({ message: "No Recipe found with this id!" });
       return;
     }
 
     res.status(200).json(dbUserData);
   } catch (err) {
     res.status(500).json(err);
-    console.log(err)
+    console.log(err);
   }
 });
 //*************************************END PROFILE ROUTES*******************************/
@@ -131,7 +131,8 @@ router.get('/profile/:id', async (req, res) => {
 //************************************BEGIN RECIPE ROUTES****************************/
 //view recipe
 //works
-router.get('/recipe/:id', async (req, res) => {    //will need withAuth
+router.get("/recipe/:id", async (req, res) => {
+  //will need withAuth
   try {
     const dbRecipeData = await Recipe.findOne({
       where: { id: req.params.id },
@@ -141,13 +142,19 @@ router.get('/recipe/:id', async (req, res) => {    //will need withAuth
           attributes: ["username"],
           as: "usersRecipes",
         },
-      ]
+      ],
     });
+    const User_Recipe = dbUser_RecipeData.get({ plain: true });
+    res.render("recipe", {
+      User_Recipe,
+      loggedIn: true,
+    });
+
     res.status(200).json(dbRecipeData);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
-  };
+  }
 });
 //*************************************END RECIPE ROUTES********************************/
 //*************************************************************************************/
