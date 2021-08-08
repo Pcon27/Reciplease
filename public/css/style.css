@@ -41,9 +41,9 @@
 /* LOGIN PAGE */
 .login-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   margin: 50px;
 }
 
@@ -235,4 +235,29 @@ textarea::placeholder {
     rgb(136, 43, 47) 100%
   );
   transform: scale(1.1);
+}
+
+
+@media screen and (max-width: 900px) {
+
+
+  .card {
+    width: 45%;
+}
+/* LOGIN PAGE */
+.login-container {
+  flex-direction: column;
+  align-items: center;
+
+}
+}
+
+
+@media screen and (max-width: 600px) {
+
+
+  .card {
+    width: 90%;
+}
+
 }
