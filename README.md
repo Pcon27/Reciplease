@@ -2,6 +2,18 @@
 
 A new kind of recipe book. In a world of online databases we created a user friendly personal cookbook. The user can upload family recipies or their personal favorites and share them with friends, family, and our Reciplease community. The next time you are at a bbq and taste someone's homemade mac n cheese asking, "Recipe, please!" is now as easy as a click of a button.
 
+## Table of contents
+
+- [Description](#description)
+- [Getting Started](#getting)
+- [Prerequisites](#prerequisites)
+- [Installing](#installing)
+- [Built With](#built)
+- [Deployed Link](#deployed)
+- [License](#license)
+- [Contributors](#contributors)
+- [Acknowledements](#acknowledements)
+
 ## Getting Started
 
 First, clone the repository [HERE](git@github.com:Pcon27/Reciplease.git)
@@ -18,9 +30,11 @@ DB_USER=root
 DB_PASSWORD=SECRETPASSWORD
 ```
 
+A great tool to see our database and check routes is Insonmia [HERE](https://insomnia.rest/download)
+
 ### Installing
 
-Log in to mysql inside the db file.
+From your terminal login to mysql inside the db file.
 
 ```
 Reciplease % cd db
@@ -50,33 +64,15 @@ db % cd ..
 Reciplease % npm run seed
 ```
 
+Now you can run an npm start to start your local server and see our database in action.
+
 ```
 Reciplease % npm run start
 ```
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+From Insomnia you can run the routes and see what recipes our users have created.
 
-What things you need to install the software and how to install them.
-
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development environment running.
-
-Say what the step will be:
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
+public/img/insomiaGetRequest.png
 
 End with an example of getting some data out of the system or using it for a little demo.
 
@@ -85,21 +81,45 @@ End with an example of getting some data out of the system or using it for a lit
 - [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
 - [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
 - [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [MySql](https://www.mysql.com)
+- [Bcrypt](https://www.npmjs.com/package/bcrypt)
 
 ## Deployed Link
 
-- [See Live Site](https://github.com/JessGiannini/QuizMe)
+- [See Live Site](heroku)
 
-## Authors
+## License
+
+This application is licensed under [MIT](<(https://opensource.org/licenses/MIT)>).
+
+## Contributors
+
+See commit history [HERE](https://github.com/Pcon27/Reciplease/graphs/contributors)
+
+**Alisha Pal**
+
+- [Link to Portfolio Site](https://jessgiannini.github.io/New-Web-Developer-Portfolio/)
+- [Link to Github](https://github.com/jessgiannini)
+- [Link to LinkedIn](https://www.linkedin.com/in/jessica-aletta-giannini-155b1310/)
+
+**Eajay Delos Santos**
+
+- [Link to Portfolio Site](https://jessgiannini.github.io/New-Web-Developer-Portfolio/)
+- [Link to Github](https://github.com/jessgiannini)
+- [Link to LinkedIn](https://www.linkedin.com/in/jessica-aletta-giannini-155b1310/)
+
+**Peter Consagra**
+
+- [Link to Portfolio Site](https://jessgiannini.github.io/New-Web-Developer-Portfolio/)
+- [Link to Github](https://github.com/jessgiannini)
+- [Link to LinkedIn](https://www.linkedin.com/in/jessica-aletta-giannini-155b1310/)
 
 **Jessica Giannini**
 
-- [Link to Portfolio Site](https://jessgiannini.github.io/WebDeveloperPortfolio/)
+- [Link to Portfolio Site](https://jessgiannini.github.io/New-Web-Developer-Portfolio/)
 - [Link to Github](https://github.com/jessgiannini)
 - [Link to LinkedIn](https://www.linkedin.com/in/jessica-aletta-giannini-155b1310/)
 
 ## Acknowledgments
 
-- Thank you to my amazing classmates who help me navigate the ins and outs of coding.
-- Thanks to all the YouTube stars who helped me see the many ways to pet a cat.
-- Thanks to my friend Kelsey for inspiring me to take this course.
+- We'd like to thank the Full Stack Web Development Boot Camp at UC Berkely for giving us the tools to create this application.
