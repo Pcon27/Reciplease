@@ -4,6 +4,7 @@ const { Recipe, User, User_Recipe } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // GET all posts associated with the logged-in user
+//works
 router.get('/', withAuth, async (req, res) => {
   try {
     const dbUser_RecipeData = await User.findByPk(req.session.userId, {
@@ -20,8 +21,8 @@ router.get('/', withAuth, async (req, res) => {
     });
     
     // // serialize data before passing to template
-    const User_Recipe = dbUser_RecipeData.get({ plain: true });
-    res.status(200).json(User_Recipe);
+    // const User_Recipe = dbUser_RecipeData.get({ plain: true });
+    res.status(200).json(dbUser_RecipeData);
 
     // res.render('User_Recipe', {
     // User_Recipe,
@@ -39,6 +40,7 @@ router.get('/', withAuth, async (req, res) => {
 
 
 // GET selected post
+//works
 router.get('/:id', async (req, res) => {
   try {
     const dbUserData = await User.findByPk(req.params.id, {
