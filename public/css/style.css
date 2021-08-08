@@ -37,7 +37,8 @@
 .cardBody {
   text-align: center;
 }
-.h5, h5 {
+.h5,
+h5 {
   font-size: 1.75rem;
 }
 
@@ -133,7 +134,11 @@ form label {
   display: block;
 }
 
-/* Modal stylling */
+.recipe {
+  color: azure;
+}
+
+/* Modal stylling
 .modal-body {
   font-size: small;
 }
@@ -163,7 +168,7 @@ form label {
     rgb(136, 43, 47) 100%
   );
   transform: scale(1.1);
-}
+} */
 
 /* Add Recipe Page */
 .header-add-recipe {
@@ -240,27 +245,19 @@ textarea::placeholder {
   transform: scale(1.1);
 }
 
-
 @media screen and (max-width: 900px) {
-
-
   .card {
     width: 45%;
+  }
+  /* LOGIN PAGE */
+  .login-container {
+    flex-direction: column;
+    align-items: center;
+  }
 }
-/* LOGIN PAGE */
-.login-container {
-  flex-direction: column;
-  align-items: center;
-
-}
-}
-
 
 @media screen and (max-width: 600px) {
-
-
   .card {
     width: 90%;
-}
-
+  }
 }
