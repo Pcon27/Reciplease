@@ -97,27 +97,6 @@ router.post("/", async (req, res) => {
       res.status(500).json(err);
 
     }
-
-    const validPassword = await dbUserData.checkPassword(req.body.password);
-
-    if (!validPassword) {
-      res
-        .status(400)
-        .json({ message: "Incorrect email or password. Please try again!" });
-      return;
-    }
-
-    req.session.save(() => {
-      req.session.loggedIn = true;
-
-      res
-        .status(200)
-        .json({ user: dbUserData, message: "You are now logged in!" });
-    });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
 });
 
 // Logout
