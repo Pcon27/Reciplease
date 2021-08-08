@@ -31,8 +31,11 @@
             </ul>
 
             <div class="text-end">
-              <button type="button" class="btn btn-outline-light me-2">Login</button>
-              <button type="button" class="btn btn-danger">Sign-up</button>
+           {{#if loggedIn}}
+              <button id="logout" class="btn-no-style">Logout</button>
+           {{else}}
+              <a href="/login"><button type="button" class="btn btn-danger me-2">Login/Sign-up</button></a>
+          {{/if}}  
             </div>
           </div>
         </div>
@@ -43,7 +46,7 @@
     {{{body}}}
   </div>
         <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
+        {{#if loggedIn}}
         <script src="/js/logout.js"></script>
         {{/if}}
 
