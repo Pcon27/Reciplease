@@ -149,18 +149,29 @@ router.get("/recipe/:id", async (req, res) => {
         },
       ],
     });
-    const User_Recipe = dbUser_RecipeData.get({ plain: true });
+   
+    const User_Recipe = dbRecipeData.get({ plain: true });
+    console.log("START HERE USER RECIPE",User_Recipe)
     res.render("recipe", {
       User_Recipe,
       loggedIn: true,
     });
 
-    res.status(200).json(dbRecipeData);
+    // res.status(200).json(dbRecipeData);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
+router.get("/api/recipe",withAuth,(req,res)=> {
+  try {
+    res.render("add-recipe");
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 //*************************************END RECIPE ROUTES********************************/
 //*************************************************************************************/
 //************************************************************************************/
