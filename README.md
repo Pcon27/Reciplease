@@ -4,9 +4,57 @@ A new kind of recipe book. In a world of online databases we created a user frie
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+First, clone the repository [HERE](git@github.com:Pcon27/Reciplease.git)
 
 ### Prerequisites
+
+Install the node_modules and package.json by running an npm i from your terminal. Be sure to include express, sequelize, mysql2, bcrypt, and dotenv packages.
+
+Be sure to populate the .env file with your mysql password.
+
+```
+DB_NAME=recipe_db
+DB_USER=root
+DB_PASSWORD=SECRETPASSWORD
+```
+
+### Installing
+
+Log in to mysql inside the db file.
+
+```
+Reciplease % cd db
+
+db % mysql -u root -p
+
+Enter password:
+
+Welcome to the MySQL monitor.
+```
+
+Then source the database and exit:
+
+```
+mysql> source schema.sql;
+Query OK, 4 rows affected (0.06 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+mysql> exit
+```
+
+Exit mysql and leave the db folder. Then run a npm seed command to seed our database.
+
+```
+db % cd ..
+Reciplease % npm run seed
+```
+
+```
+Reciplease % npm run start
+```
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 What things you need to install the software and how to install them.
 
