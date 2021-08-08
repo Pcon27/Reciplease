@@ -20,7 +20,8 @@ router.get("/", async (req, res) => {
     const recipes = dbRecipeData.map((recipe) =>
       recipe.get({ plain: true })
     );
-    res.render('homepage', {
+
+    res.status(200).json(dbRecipeData).render('homepage', {
       recipes
     })
     // res.status(200).json(dbRecipeData);
@@ -29,6 +30,47 @@ router.get("/", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+
+router.get("/users", async (req, res) => {
+  // Access our User model and run .findAll() method)
+  try {
+    const dbUserData = await User.findAll({
+      attributes: { exclude: ["password"] },
+    });
+    res.status(200).json(dbUserData);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+// GET /api/users/1 (get user by ID)
+router.get("/users/:id", async (req, res) => {
+  try {
+    const dbUserData = await User.findByPk(req.params.id, {
+      attributes: { exclude: ["password"] },
+      include: [
+        {
+          model: Recipe,
+          through: User,
+          as: "userMadeRecipes",
+        },
+      ],
+    });
+    // include the Comment model here:
+
+    if (!dbUserData) {
+      res.status(404).json({ message: "No user found with this id" });
+      return;
+    }
+    res.json(dbUserData);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 
 // Login route
 router.get("/login", (req, res) => {

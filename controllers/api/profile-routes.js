@@ -45,12 +45,11 @@ router.get('/:id', async (req, res) => {
   try {
     const dbUserData = await User.findByPk(req.params.id, {
       // order: [['created_at', 'DESC']],
-
+      attributes: { exclude: ['password'] },
       include: [
         {
           model: Recipe,
-          through: User_Recipe,
-          as: "userMadeRecipes"
+          as: "userMadeRecipes",
         },
       ]
 

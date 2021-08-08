@@ -10,8 +10,8 @@ router.get('/:id', async (req, res) => {    //will need withAuth
             include: [
                 {
                   model: User,
-                  through: User_Recipe,
-                  as: "usersRecipes"
+                  attributes: ["username"],
+                  as: "usersRecipes",
                 },
               ]
         });
@@ -25,16 +25,30 @@ router.get('/:id', async (req, res) => {    //will need withAuth
 
 //post a new recipe
 
-router.post('/', async (req, res) => {
+router.post('/', withAuth,async (req, res) => {
     try {
+
         const dbRecipeData = await Recipe.create({
+    
+            user_id:req.session.userId,
             name: req.body.name,
             description: req.body.description,
             ingredients: req.body.ingredients,
             instructions: req.body.instructions,
         });
-        res.status(200).json(dbRecipeData);
+        // const headerId = header.id      
+        // await bookingDescription.create({state:'active',createdBy:'somebody',modifiedBy:'somebody',bookingHeaderId:headerId})      
+        // res.json(header);
+        const dbId = dbRecipeData.id;
+        await User_Recipe.create({
+            user_id:req.session.userId,
+            // recipe_id:req.session.userId,
+            recipe_id:dbId
 
+        });
+     
+        res.status(200).json(dbRecipeData);
+        // });
     } catch (err) {
         res.status(500).json(err);
     };
