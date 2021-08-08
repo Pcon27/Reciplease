@@ -1,14 +1,9 @@
      <div class="card col-6 col-md-4 m-2">
-         <a href="/user/{{id}}">
-        <h2 class="bg-success text-white">{{username}}</h2></a>
+         <a href="/users/{{id}}">
+        <h2 class="bg-success text-white">{{user/username}}</h2></a>
         <section class="cardBody">
-            <h5 class="card-title">{{recipe.name}}</h5>
-            <p class="card-text">{{recipe.description}}</p>
-                {{#if loggedIn}}
-                <a href="/profile" class="btn btn-warning">Add to profile</a>
-                 {{else}}
-                 <a href="login">You must login to add recipes</a>
-                {{/if}}
+            <h5 class="card-title">{{name}}</h5>
+            <p class="card-text">Description: <br/>{{description}}</p>
+            <p class="card-text">Ingredients: <br/>{{ingredients}}</p>
         </section>
-
      </div>

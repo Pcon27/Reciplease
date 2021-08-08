@@ -20,7 +20,7 @@ router.get("/", async (req, res) => {
     const recipes = dbRecipeData.map((recipe) =>
       recipe.get({ plain: true })
     );
-    res.status(200).render('homepage', {
+    res.render('homepage', {
       recipes
     })
   } catch (err) {
