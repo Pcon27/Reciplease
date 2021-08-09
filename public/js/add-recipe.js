@@ -31,7 +31,11 @@ const newFormHandler = async (event) => {
           alert('Failed to post recipe.');
         }
     }else{
-      swal('Failed to add new recipe. Please enter all fields');
+      swal({
+        title:'Failed to add new recipe.',
+        text: 'Please enter all fields',
+        icon: 'warning',
+        button: 'Try again'});
 
     }
 };
