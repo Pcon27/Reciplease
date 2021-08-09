@@ -21,16 +21,16 @@ const newFormHandler = async (event) => {
     recipeIngredient &&
     recipeInstructions
   ) {
-    const response = await fetch("/api/recipe", {
-      method: "POST",
-      body: JSON.stringify({
-        recipeName,
-        recipeDescription,
-        recipeIngredient,
-        recipeInstructions,
-      }),
-      headers: { "Content-Type": "application/json" },
-    });
+    // const response = await fetch("/api/recipe", {
+    //   method: "POST",
+    //   body: JSON.stringify({
+    //     recipeName,
+    //     recipeDescription,
+    //     recipeIngredient,
+    //     recipeInstructions,
+    //   }),
+    //   headers: { "Content-Type": "application/json" },
+    // });
     // const response = await Promise.all([fetch('/api/recipe', {
     //     method: 'POST',
     //     body: JSON.stringify({ recipeName,recipeDescription,recipeIngredient,recipeInstructions }),
