@@ -56,9 +56,10 @@ router.get("/users/:id", async (req, res) => {
         },
       ],
     });
-    const User_Recipe = dbUserData.get({ plain: true });
+    const profileRecipe = dbUserData.get({ plain: true });
+    console.log(profileRecipe);
     res.render("profile", {
-      User_Recipe,
+      profileRecipe,
       loggedIn: true,
     });
     if (!dbUserData) {
