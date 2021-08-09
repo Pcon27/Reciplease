@@ -18,7 +18,7 @@ router.get("/", async (req, res) => {
       ],
     });
     const recipes = dbRecipeData.map((recipe) => recipe.get({ plain: true }));
-    console.log("recipes", recipes);
+    console.log('recipes', recipes);
     res.render("homepage", {
       recipes,
     });
@@ -51,14 +51,18 @@ router.get("/users/:id", async (req, res) => {
       include: [
         {
           model: Recipe,
-          through: User,
+          attributes: [
+            'name',
+            'description'
+          ],
           as: "userMadeRecipes",
         },
       ],
     });
-    const User_Recipe = dbUserData.get({ plain: true });
+    const profileRecipe = dbUserData.get({ plain: true });
+    console.log(profileRecipe);
     res.render("profile", {
-      User_Recipe,
+      profileRecipe,
       loggedIn: true,
     });
     if (!dbUserData) {
@@ -151,9 +155,10 @@ router.get("/recipe/:id", async (req, res) => {
       ],
     });
     const recipe = dbRecipeData.get({ plain: true });
-    // Send over the 'loggedIn' session variable to the 'homepage' template
-    res.render("recipe", { recipe, loggedIn: req.session.loggedIn });
-
+    res.render("recipe", {
+      recipe,
+      loggedIn: req.session.loggedIn,
+    });
     // res.status(200).json(dbRecipeData);
   } catch (err) {
     console.log(err);
@@ -169,7 +174,6 @@ router.get("/api/recipe", withAuth, (req, res) => {
     res.status(500).json(err);
   }
 });
-
 //*************************************END RECIPE ROUTES********************************/
 //*************************************************************************************/
 //************************************************************************************/
