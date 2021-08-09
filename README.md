@@ -104,15 +104,15 @@ See commit history [HERE](https://github.com/Pcon27/Reciplease/graphs/contributo
 
 **Eajay Delos Santos**
 
-- [Link to Portfolio Site](https://jessgiannini.github.io/New-Web-Developer-Portfolio/)
-- [Link to Github](https://github.com/jessgiannini)
-- [Link to LinkedIn](https://www.linkedin.com/in/jessica-aletta-giannini-155b1310/)
+- [Link to Portfolio Site](https://www.linkedin.com/in/eajay-delos-santos-912950214/)
+- [Link to Github](https://github.com/EajayD)
+- [Link to LinkedIn](https://www.linkedin.com/in/eajay-delos-santos-912950214/)
 
 **Peter Consagra**
 
-- [Link to Portfolio Site](https://jessgiannini.github.io/New-Web-Developer-Portfolio/)
-- [Link to Github](https://github.com/jessgiannini)
-- [Link to LinkedIn](https://www.linkedin.com/in/jessica-aletta-giannini-155b1310/)
+- [Link to Portfolio Site](https://pcon27.github.io/MyWebsite/)
+- [Link to Github](https://github.com/Pcon27)
+- [Link to LinkedIn](https://www.linkedin.com/in/peter-consagra-4952401a8/)
 
 **Jessica Giannini**
 
