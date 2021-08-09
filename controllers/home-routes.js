@@ -151,12 +151,10 @@ router.get("/recipe/:id", async (req, res) => {
       ],
     });
     const recipe = dbRecipeData.get({ plain: true });
-    res.render("recipe", {
-      recipe,
-      loggedIn: true,
-    });
+    // Send over the 'loggedIn' session variable to the 'homepage' template
+    res.render("recipe", { recipe, loggedIn: req.session.loggedIn });
 
-    res.status(200).json(dbRecipeData);
+    // res.status(200).json(dbRecipeData);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
