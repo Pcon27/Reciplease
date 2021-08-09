@@ -14,6 +14,10 @@ A new kind of recipe book. In a world of online databases we created a user frie
 - [Contributors](#contributors)
 - [Acknowledements](#acknowledements)
 
+## Preview
+
+[Website Demo Video](https://drive.google.com/file/d/1VLEpxVNv6LWYAhqbJMxVWTHxJbSuVpB9/view)
+
 ## Getting Started
 
 First, clone the repository [HERE](git@github.com:Pcon27/Reciplease.git)
@@ -71,10 +75,7 @@ Reciplease % npm run start
 ```
 
 From Insomnia you can run the routes and see what recipes our users have created.
-
-public/img/insomiaGetRequest.png
-
-End with an example of getting some data out of the system or using it for a little demo.
+![Insomnia screenshot](public/img/insomiaGetRequest.png "Insomnia Screenshot")
 
 ## Built With
 

@@ -150,9 +150,9 @@ router.get("/recipe/:id", async (req, res) => {
         },
       ],
     });
-    const User_Recipe = dbUser_RecipeData.get({ plain: true });
+    const recipe = dbRecipeData.get({ plain: true });
     res.render("recipe", {
-      User_Recipe,
+      recipe,
       loggedIn: true,
     });
 
