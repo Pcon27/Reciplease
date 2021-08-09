@@ -18,6 +18,12 @@ A new kind of recipe book. In a world of online databases we created a user frie
 
 [Website Demo Video](https://drive.google.com/file/d/1VLEpxVNv6LWYAhqbJMxVWTHxJbSuVpB9/view)
 
+![Functionality](./public/img/RecipleaseOverview.gif)
+
+Our page is also highly responsive to different machines.
+
+![Responsiveness](./public/img/RecipleaseResponsiveness.gif)
+
 ## Getting Started
 
 First, clone the repository [HERE](git@github.com:Pcon27/Reciplease.git)
@@ -77,6 +83,16 @@ Reciplease % npm run start
 From Insomnia you can run the routes and see what recipes our users have created.
 ![Insomnia screenshot](public/img/insomiaGetRequest.png "Insomnia Screenshot")
 
+## Challenges
+
+We encountered many errors including routing issues as well as handlebar data populating trouble.
+
+![Error](./public/img/RecipleaseRouteError.gif "Error Screenshot")
+
+One major struggle was adding new recipies to our database as well as display them to our users profiles.
+
+![Error](./public/img/RecipleaseAddRecipe.gif "Error Screenshot")
+
 ## Built With
 
 - [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
@@ -84,6 +100,14 @@ From Insomnia you can run the routes and see what recipes our users have created
 - [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - [MySql](https://www.mysql.com)
 - [Bcrypt](https://www.npmjs.com/package/bcrypt)
+
+![Login](./public/img/RecipleaseLogin.gif)
+
+As well as a new library for us called Sweet Alert.
+
+- [SweetAlert](www.sweetalert.com)
+
+![SweetAlert](./public/img/RecipleaseSweetAlert.gif)
 
 ## Deployed Link
 
