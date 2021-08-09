@@ -159,7 +159,6 @@ router.get("/recipe/:id", async (req, res) => {
       recipe,
       loggedIn: req.session.loggedIn,
     });
-
     // res.status(200).json(dbRecipeData);
   } catch (err) {
     console.log(err);

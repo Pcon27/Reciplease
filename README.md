@@ -14,6 +14,10 @@ A new kind of recipe book. In a world of online databases we created a user frie
 - [Contributors](#contributors)
 - [Acknowledements](#acknowledements)
 
+## Preview
+
+[Website Demo Video](https://drive.google.com/file/d/1VLEpxVNv6LWYAhqbJMxVWTHxJbSuVpB9/view)
+
 ## Getting Started
 
 First, clone the repository [HERE](git@github.com:Pcon27/Reciplease.git)
@@ -71,10 +75,7 @@ Reciplease % npm run start
 ```
 
 From Insomnia you can run the routes and see what recipes our users have created.
-
-public/img/insomiaGetRequest.png
-
-End with an example of getting some data out of the system or using it for a little demo.
+![Insomnia screenshot](public/img/insomiaGetRequest.png "Insomnia Screenshot")
 
 ## Built With
 
@@ -98,21 +99,21 @@ See commit history [HERE](https://github.com/Pcon27/Reciplease/graphs/contributo
 
 **Alisha Pal**
 
-- [Link to Portfolio Site](https://jessgiannini.github.io/New-Web-Developer-Portfolio/)
-- [Link to Github](https://github.com/jessgiannini)
-- [Link to LinkedIn](https://www.linkedin.com/in/jessica-aletta-giannini-155b1310/)
+- [Link to Portfolio Site](https://apal96.github.io/alisha-portfolio/)
+- [Link to Github](https://github.com/apal96)
+- [Link to LinkedIn](http://www.linkedin.com/in/alisha-pal-6635361b5)
 
 **Eajay Delos Santos**
 
-- [Link to Portfolio Site](https://jessgiannini.github.io/New-Web-Developer-Portfolio/)
-- [Link to Github](https://github.com/jessgiannini)
-- [Link to LinkedIn](https://www.linkedin.com/in/jessica-aletta-giannini-155b1310/)
+- [Link to Portfolio Site](https://www.linkedin.com/in/eajay-delos-santos-912950214/)
+- [Link to Github](https://github.com/EajayD)
+- [Link to LinkedIn](https://www.linkedin.com/in/eajay-delos-santos-912950214/)
 
 **Peter Consagra**
 
-- [Link to Portfolio Site](https://jessgiannini.github.io/New-Web-Developer-Portfolio/)
-- [Link to Github](https://github.com/jessgiannini)
-- [Link to LinkedIn](https://www.linkedin.com/in/jessica-aletta-giannini-155b1310/)
+- [Link to Portfolio Site](https://pcon27.github.io/MyWebsite/)
+- [Link to Github](https://github.com/Pcon27)
+- [Link to LinkedIn](https://www.linkedin.com/in/peter-consagra-4952401a8/)
 
 **Jessica Giannini**
 
