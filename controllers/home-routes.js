@@ -18,6 +18,7 @@ router.get("/", async (req, res) => {
       ],
     });
     const recipes = dbRecipeData.map((recipe) => recipe.get({ plain: true }));
+    console.log('recipes', recipes);
     res.render("homepage", {
       recipes,
     });
@@ -88,10 +89,6 @@ router.get("/profile", withAuth, async (req, res) => {
       ],
     });
     // serialize data before passing to template
-    // const User_Recipe = dbUser_RecipeData.get({ plain: true });
-    //     // Send over the 'loggedIn' session variable to the 'homepage' template
-    // res.render("profile", { User_Recipe, loggedIn: req.session.loggedIn });
-
     const User_Recipe = dbUser_RecipeData.get({ plain: true });
     res.render("profile", {
       User_Recipe,
@@ -153,33 +150,18 @@ router.get("/recipe/:id", async (req, res) => {
         },
       ],
     });
-    const recipe = dbRecipeData.get({ plain: true });
-    // Send over the 'loggedIn' session variable to the 'homepage' template
-    res.render("recipe", { recipe, loggedIn: req.session.loggedIn });
+    const User_Recipe = dbUser_RecipeData.get({ plain: true });
+    res.render("recipe", {
+      User_Recipe,
+      loggedIn: true,
+    });
 
-    // const User_Recipe = dbRecipeData.get({ plain: true });
-    // console.log("START HERE USER RECIPE", User_Recipe);
-    // res.render("recipe", {
-    //   User_Recipe,
-    //   loggedIn: true,
-    // });
-
-    // res.status(200).json(dbRecipeData);
+    res.status(200).json(dbRecipeData);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
-
-router.get("/api/recipe", withAuth, (req, res) => {
-  try {
-    res.render("add-recipe");
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
-
 //*************************************END RECIPE ROUTES********************************/
 //*************************************************************************************/
 //************************************************************************************/
