@@ -30,7 +30,10 @@ const newFormHandler = async (event) => {
         } else {
           alert('Failed to post recipe.');
         }
-    };
+    }else{
+      swal('Failed to add new recipe. Please enter all fields');
+
+    }
 };
 document
 .querySelector('.add-recipe-form')
