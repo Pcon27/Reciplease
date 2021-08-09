@@ -136,6 +136,12 @@ form label {
 
 .recipe {
   color: black;
+  min-width: 30vw;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-items: stretch;
+  align-items: center;
 }
 
 /* Modal stylling
