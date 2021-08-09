@@ -96,7 +96,7 @@ router.get("/profile", withAuth, async (req, res) => {
     const User_Recipe = dbUser_RecipeData.get({ plain: true });
     console.log(User_Recipe)
     res.render("profile", {
-      profileRecipe: User_Recipe.userMadeRecipes,
+      User_Recipe,
       loggedIn: true,
     });
   } catch (err) {
