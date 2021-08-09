@@ -94,8 +94,9 @@ router.get("/profile", withAuth, async (req, res) => {
     });
     // serialize data before passing to template
     const User_Recipe = dbUser_RecipeData.get({ plain: true });
+    console.log(User_Recipe)
     res.render("profile", {
-      User_Recipe,
+      profileRecipe: User_Recipe.userMadeRecipes,
       loggedIn: true,
     });
   } catch (err) {
