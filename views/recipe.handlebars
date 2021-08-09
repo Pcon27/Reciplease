@@ -1,26 +1,23 @@
+{{!-- {{#if loggedIn}} --}}
 <section>
     <div class="recipe">
-        <h1>Recipe Title</h1>
-        <h3>This is the recipe descritpion.</h3>
+        <h1>Recipe: {{recipe.name}}</h1>
+        <h3>Description</h3>
+        <p>{{recipe.descritption}}</p>
         <div class="row">
             <div class="col-md-6">
                 <h4>Ingredients</h4>
-                <li>ITEMS</li>
-                <li>ITEMS</li>
-                <li>ITEMS</li>
-                <li>ITEMS</li>
-                <li>ITEMS</li>
+                <p>{{recipe.ingredients}}</p>
             </div>
             <div class="col-md-6">
                 <h4>Instructions</h4>
-                <li>1. blah blah blah</li>
-                <li>2. blah blah blah</li>
-                <li>3. blah blah blah</li>
-                <li>4. blah blah blah</li>
-                <li>5. blah blah blah</li>
+                <p>{{recipe.instructions}}</p>
             </div>
         </div>
+        <div>
+            <p>Created On: {{recipe.post_date}}</p>
+        </div>
     </div>
-
 </section>
-
+{{!-- {{else}}
+<a href="/login"><button type="button" class="btn btn-danger me-2">Login</button></a> --}}
