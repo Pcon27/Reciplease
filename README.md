@@ -98,9 +98,9 @@ See commit history [HERE](https://github.com/Pcon27/Reciplease/graphs/contributo
 
 **Alisha Pal**
 
-- [Link to Portfolio Site](https://jessgiannini.github.io/New-Web-Developer-Portfolio/)
-- [Link to Github](https://github.com/jessgiannini)
-- [Link to LinkedIn](https://www.linkedin.com/in/jessica-aletta-giannini-155b1310/)
+- [Link to Portfolio Site](https://apal96.github.io/alisha-portfolio/)
+- [Link to Github](https://github.com/apal96)
+- [Link to LinkedIn](http://www.linkedin.com/in/alisha-pal-6635361b5)
 
 **Eajay Delos Santos**
 
