@@ -18,7 +18,7 @@ router.get("/", async (req, res) => {
       ],
     });
     const recipes = dbRecipeData.map((recipe) => recipe.get({ plain: true }));
-    console.log("recipes", recipes);
+    console.log('recipes', recipes);
     res.render("homepage", {
       recipes,
     });
@@ -51,7 +51,10 @@ router.get("/users/:id", async (req, res) => {
       include: [
         {
           model: Recipe,
-          through: User,
+          attributes: [
+            'name',
+            'description'
+          ],
           as: "userMadeRecipes",
         },
       ],
@@ -151,13 +154,13 @@ router.get("/recipe/:id", async (req, res) => {
         },
       ],
     });
-    const User_Recipe = dbUser_RecipeData.get({ plain: true });
+    const recipe = dbRecipeData.get({ plain: true });
     res.render("recipe", {
-      User_Recipe,
-      loggedIn: true,
+      recipe,
+      loggedIn: req.session.loggedIn,
     });
 
-    res.status(200).json(dbRecipeData);
+    // res.status(200).json(dbRecipeData);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -172,7 +175,6 @@ router.get("/api/recipe", withAuth, (req, res) => {
     res.status(500).json(err);
   }
 });
-
 //*************************************END RECIPE ROUTES********************************/
 //*************************************************************************************/
 //************************************************************************************/
