@@ -5,7 +5,10 @@
             <h5 class="card-title">{{name}}</h5>
             <p class="card-text">Description: <br/>{{description}}</p>
             <p class="card-text">Ingredients: <br/>{{ingredients}}</p>
-            <button class="buttonHome" type="submit">View Recipe</button>
-            <button class="buttonHome" type="submit">Add Recipe</button>
+            <a href="/recipe/{{id}}"><button class="buttonHome" id="viewRecipe" type="submit">View Recipe</button></a>
+            <a href="/api/recipe"><button class="buttonHome" id="addRecipe" type="submit">Add Recipe</button></a>
         </section>
      </div>
+    <script>src = "/js/add-recipe.js"</script>
+    <script>src = "/js/home.js"</script>
+
