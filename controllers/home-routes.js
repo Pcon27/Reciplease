@@ -46,19 +46,19 @@ router.get("/users", async (req, res) => {
 // GET /users/1 (get user by ID)
 router.get("/users/:id", async (req, res) => {
   try {
-    const dbUserData = await User.findByPk(req.params.id, {
-      attributes: { exclude: ["password"] },
-      include: [
-        {
-          model: Recipe,
-          attributes: [
-            'name',
-            'description'
-          ],
-          as: "userMadeRecipes",
-        },
-      ],
-    });
+    const dbUserData = await Recipe.findByPk(req.params.id);
+      // attributes: { exclude: ["password"] },
+      // include: [
+      //   {
+      //     model: Recipe,
+      //     attributes: [
+      //       'name',
+      //       'description'
+      //     ],
+      //     as: "userMadeRecipes",
+      //   },
+      // ],
+    // });
     const profileRecipe = dbUserData.get({ plain: true });
     console.log(profileRecipe);
     res.render("profile", {
