@@ -18,7 +18,7 @@ router.get("/", async (req, res) => {
       ],
     });
     const recipes = dbRecipeData.map((recipe) => recipe.get({ plain: true }));
-    console.log('recipes', recipes);
+    console.log("recipes", recipes);
     res.render("homepage", {
       recipes,
     });
@@ -162,6 +162,16 @@ router.get("/recipe/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.get("/api/recipe", withAuth, (req, res) => {
+  try {
+    res.render("add-recipe");
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 //*************************************END RECIPE ROUTES********************************/
 //*************************************************************************************/
 //************************************************************************************/
