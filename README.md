@@ -87,7 +87,7 @@ From Insomnia you can run the routes and see what recipes our users have created
 
 ## Deployed Link
 
-- [See Live Site](heroku)
+- [See Live Site](https://pacific-caverns-03345.herokuapp.com/)
 
 ## License
 
